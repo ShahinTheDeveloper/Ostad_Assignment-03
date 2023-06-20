@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Question13</title>
+        <link rel="stylesheet" href="../dist/app.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="h-screen flex flex-col justify-center items-center">
+                <p id="paragraph1">This is paragraph 1.</p>
+                <p class="changeColor mt-5" id="paragraph2">
+                    This is paragraph 2.
+                </p>
+                <p class="changeColor my-5" id="paragraph3">
+                    This is paragraph 3.
+                </p>
+                <p id="paragraph4">This is paragraph 4.</p>
+            </div>
+        </div>
+
+        <script>
+            const items = document.querySelectorAll(".changeColor");
+
+            function changeTextColor() {
+                items.forEach((item) => {
+                    item.style.color = "red";
+                });
+            }
+
+            changeTextColor();
+        </script>
+    </body>
+</html>

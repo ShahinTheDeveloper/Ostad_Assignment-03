@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Question4</title>
+        <link rel="stylesheet" href="../dist/app.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="h-screen flex flex-col justify-center items-center">
+                <p>Button for open new window</p>
+                <button
+                    onclick="openNewWindow(url, width, height)"
+                    class="py-5 px-10 mb-20 bg-black text-white"
+                >
+                    Open New Window
+                </button>
+            </div>
+        </div>
+
+        <script>
+            //ans to the question no-04 (a)
+            function openNewWindow(url, width, height) {
+                const windowFeatures = `width=${width},height=${height}`;
+                window.open(url, "_blank", windowFeatures);
+            }
+
+            //ans to the question no-04 (b)
+            const url = "https://www.example.com";
+            const width = 800;
+            const height = 600;
+
+            //openNewWindow(url, width, height);
+
+            // added a button for function call
+        </script>
+    </body>
+</html>

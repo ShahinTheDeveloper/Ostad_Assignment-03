@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Question9</title>
+        <link rel="stylesheet" href="../dist/app.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="h-screen flex flex-col justify-center items-center">
+                <div class="mt-20">
+                    <form id="ImplementForm">
+                        <div class="flex flex-col my-2">
+                            <label for="name">Name:</label>
+                            <input
+                                class="p-2 border text-slate-950"
+                                type="text"
+                                id="name"
+                                name="name"
+                            />
+                            <span id="nameError" class="text-red-600"></span>
+                        </div>
+                        <div class="flex flex-col my-2">
+                            <label for="email">Email:</label>
+                            <input
+                                class="p-2 border text-slate-950"
+                                type="email"
+                                id="email"
+                                name="email"
+                            />
+                            <span id="emailError" class="text-red-600"></span>
+                        </div>
+                        <div class="flex flex-col my-2">
+                            <label for="password">Password:</label>
+                            <input
+                                class="p-2 border text-slate-950"
+                                type="password"
+                                id="password"
+                                name="password"
+                            />
+                            <span
+                                id="passwordError"
+                                class="text-red-600"
+                            ></span>
+                        </div>
+                        <div class="flex flex-col my-2">
+                            <label for="confirmPassword"
+                                >Confirm Password:</label
+                            >
+                            <input
+                                class="p-2 border text-slate-950"
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                            />
+                            <span
+                                id="confirmPasswordError"
+                                class="text-red-600"
+                            ></span>
+                        </div>
+                        <button
+                            class="py-2 px-5 mt-2 bg-black text-white"
+                            type="submit"
+                        >
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const form = document.getElementById("ImplementForm");
+            const nameField = document.getElementById("name");
+            const emailField = document.getElementById("email");
+            const passwordField = document.getElementById("password");
+            const confirmPasswordField =
+                document.getElementById("confirmPassword");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                validateForm();
+            });
+
+            function validateForm() {
+                const name = nameField.value.trim();
+                const email = emailField.value.trim();
+                const password = passwordField.value;
+                const confirmPassword = confirmPasswordField.value;
+
+                clearErrors();
+
+                if (name === "") {
+                    displayError(nameField, "Name is required.");
+                } else if (!isAlpha(name)) {
+                    displayError(
+                        nameField,
+                        "Name should contain only letters."
+                    );
+                }
+
+                if (email === "") {
+                    displayError(emailField, "Email is required.");
+                } else if (!isValidEmail(email)) {
+                    displayError(emailField, "Invalid email format.");
+                }
+
+                if (password === "") {
+                    displayError(passwordField, "Password is required.");
+                } else if (!isValidPassword(password)) {
+                    displayError(passwordField, "Invalid password format.");
+                }
+
+                if (confirmPassword === "") {
+                    displayError(
+                        confirmPasswordField,
+                        "Confirm Password is required."
+                    );
+                } else if (password !== confirmPassword) {
+                    displayError(
+                        confirmPasswordField,
+                        "Passwords do not match."
+                    );
+                }
+            }
+
+            function clearErrors() {
+                const errorElements = form.getElementsByClassName("error");
+                for (let i = 0; i < errorElements.length; i++) {
+                    errorElements[i].textContent = "";
+                }
+            }
+
+            function displayError(field, errorMessage) {
+                const errorField = document.getElementById(`${field.id}Error`);
+                errorField.textContent = errorMessage;
+            }
+
+            function isAlpha(value) {
+                return /^[A-Za-z\s.]+$/.test(value);
+            }
+
+            function isValidEmail(value) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            }
+
+            function isValidPassword(value) {
+                return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(value);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Question2</title>
+        <link rel="stylesheet" href="../dist/app.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="h-screen flex justify-center items-center">
+                <p class="my-20 items-center">Output will show in console</p>
+            </div>
+        </div>
+
+        <script>
+            //ans to the question no-02 (a)
+            function sRootOfTotalSNumbers(numbers) {
+                const totalSquares = numbers.reduce(
+                    (sum, num) => sum + Math.pow(num, 2),
+                    0
+                );
+                const squareRoot = Math.sqrt(totalSquares);
+                return squareRoot;
+            }
+
+            //ans to the question no-02 (b)
+            const numbers = [3, 4, 5, 6, 7, 8];
+            const result = sRootOfTotalSNumbers(numbers);
+            console.log(
+                "The Square Root Of Total square number of " +
+                    numbers +
+                    " is " +
+                    result
+            );
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Question1</title>
+        <link rel="stylesheet" href="../dist/app.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="h-screen flex justify-center items-center">
+                <p class="my-20 items-center">Output will show in console</p>
+            </div>
+        </div>
+
+        <script>
+            //ans to the question no-01 (a)
+            function dayOfDate(dateString) {
+                const date = new Date(dateString);
+                const daysOfWeek = [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                ];
+
+                return daysOfWeek[date.getDay()];
+            }
+            //ans to the question no-01 (b)
+            const date = "2023-06-20";
+            const day = dayOfDate(date);
+            console.log("The date Of " + date + " is " + day);
+        </script>
+    </body>
+</html>

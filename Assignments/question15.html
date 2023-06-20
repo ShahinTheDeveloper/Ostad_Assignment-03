@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../dist/app.css" />
+        <title>Question15</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="h-screen flex justify-center items-center">
+                <p class="my-20 items-center">Output will show in console</p>
+            </div>
+        </div>
+        <script src="../js/axios.min.js"></script>
+        <script>
+            async function sendData(data) {
+                const url = "https://api.example.com/submit";
+                // Could not resolve the host name. Error code: 1006 in REQBIN
+
+                let res = await axios.post(url, data);
+                if (res.status === 200) {
+                    window.location = "../index.html";
+                } else {
+                    alert("error");
+                }
+            }
+
+            const data = {
+                name: "John Doe",
+                email: "johndoe@example.com",
+            };
+            sendData(data);
+        </script>
+    </body>
+</html>

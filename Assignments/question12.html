@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Question12</title>
+        <link rel="stylesheet" href="../dist/app.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="h-screen flex flex-col justify-center items-center">
+                <img
+                    id="changeImage"
+                    src="../img/image1.jpg"
+                    alt="Original Image"
+                    height="500"
+                    width="500"
+                />
+                <button
+                    id="changeImageUrl"
+                    class="py-2 px-5 mt-5 bg-black text-white"
+                >
+                    Click Me to change Image
+                </button>
+            </div>
+        </div>
+
+        <script>
+            const image = document.getElementById("changeImage");
+            const imageUrl = document.querySelector("#changeImageUrl");
+
+            imageUrl.addEventListener("click", function () {
+                image.src = "../img/image2.jpg";
+            });
+        </script>
+    </body>
+</html>

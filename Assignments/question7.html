@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Question7</title>
+        <link rel="stylesheet" href="../dist/app.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="h-screen flex justify-center items-center">
+                <img
+                    id="changeImage"
+                    src="../img/image1.jpg"
+                    alt="Original Image"
+                    height="500"
+                    width="500"
+                />
+            </div>
+        </div>
+
+        <script>
+            //ans to the question no-07 (a)
+            document.addEventListener("click", function (event) {
+                const x = event.clientX;
+                const y = event.clientY;
+                alert(`Clicked at coordinates (x, y): ${x}, ${y}`);
+            });
+
+            //ans to the question no-07 (b)
+            document.addEventListener("keydown", function (event) {
+                const keyCode = event.keyCode || event.which;
+                alert(`Key code: ${keyCode}`);
+            });
+
+            //ans to the question no-07 (c)
+            const imageElement = document.getElementById("changeImage");
+
+            imageElement.addEventListener("mouseover", function () {
+                imageElement.src = "../img/image2.jpg";
+            });
+
+            imageElement.addEventListener("mouseout", function () {
+                imageElement.src = "../img/image1.jpg";
+            });
+        </script>
+    </body>
+</html>
